@@ -6,7 +6,7 @@
 
 Gerado automatico de OBJETO apartir de um DataReader.
 
--  Criando um novo Serviço para uso
+-  <a href="/CriandoUmNovoServicoParaUso">Criando um novo Serviço para uso</a>
 -  
 
 
@@ -86,7 +86,7 @@ Entendendo o codigo:
 
 
 -----
-<h1> Criando um novo Serviço para uso: </h1>
+[ref]: /CriandoUmNovoServicoParaUso <h1> Criando um novo Serviço para uso: </h1>
 
 Dentro do projeto *AutoAdoNet.Services -> Services*
 
