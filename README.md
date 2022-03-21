@@ -32,7 +32,7 @@
 <p align="justify">
 Com o tempo fazendo manutenção ou criando sistemas baseados em ADO.NET, cheguei à conclusão que todos os serviços eu tinha que digitar sempre o mesmo código.  
 
-```C# {.line-numbers}
+```C# line-numbers
 try 
   { 
       var watch = System.Diagnostics.Stopwatch.StartNew(); 
@@ -89,10 +89,7 @@ Tenho mesmo que todo CRUD de serviços digitar esse monte de linhas? Será que n
 * [IHelperService](#iHelperService)
     * [ExecutaQueryReader](#executaQueryReader)
     * [ExecutaQuery](#executaQueryReader)           
-    * [DRMapToList](#executaQueryReader)
-    * [CreateSqlParameter](#executaQueryReader)
-    * [GeraQuery](#executaQueryReader)
-  
+
            
            
 ### IHelperService
@@ -120,29 +117,35 @@ Modo de uso:
      throw new Exception(ex.Message);
  }
 ```
- 
-![image](https://user-images.githubusercontent.com/18741973/159328699-3fcfe574-06cc-41c1-8d93-cfb03b419b2a.png)
+![image](https://user-images.githubusercontent.com/18741973/159328699-3fcfe574-06cc-41c1-8d93-cfb03b419b2a.png)  
 
            
            
-### ExecutaQuery  (Método publico)
-           
+### ExecutaQuery  
 Método que executa comandos DML no banco de dados. (Insert , Update e Delete)
-           
+  
+Modo de uso:
+  
+![image](https://user-images.githubusercontent.com/18741973/159332584-817a9da5-870e-4632-b961-d2f4aee27892.png)
+  
+```C#
+try
+{
+    var dados = _helperService.ExecutaQuery<UserDto>(_querys.Insert, input, QueryType.Insert);
 
-### DRMapToList  (Método privado)
-           
-Método que recebe um DataReader e transfoma o mesmo em um objeto.
-           
+    return dados;
+}
+catch (Exception ex)
+{
+    throw new Exception(ex.Message);
+}
+  ```
 
-### CreateSqlParameter (Método privado)
-           
-(Método privado)
-           
-### GeraQuery (Método privado)
-           
-Método experimentar ainda em fase de aprimoramento que gera comandos DQL automaticamente.
+Diferente do comando *ExecutaQueryReader*, que retorna um DataReader em um OBJETO, este executa comando DML no banco de dados.
+  
+![image](https://user-images.githubusercontent.com/18741973/159333667-81b7b98c-9808-4324-b805-4c32561eaeb4.png)
 
+![image](https://user-images.githubusercontent.com/18741973/159333782-36ffdc79-375b-480a-a908-2d2a279bb819.png)
 
            
 ## WEB API
