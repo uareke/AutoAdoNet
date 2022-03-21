@@ -112,14 +112,90 @@ Agora vamos voltar para nosso service. Vamos criar nosso *FornecedorDto* e *Forn
 
 ![image](https://user-images.githubusercontent.com/18741973/159193678-371e659b-87a3-4361-b22a-21dc6e6fd50b.png)
 
-Suas propriedades são as seguintes:
+FornecedorDto
+```
+    public class FornecedorDto
+    {
+        public int Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public bool Ativo { get; set; }
+    }
+```    
+    
+FornecedorInput
+```
+    public class FornecedorDto
+    {
+        public int? Id { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
+        public bool? Ativo { get; set; }
+    }
+```    
 
-<h3> FornecedorDto </h3>
-![image](https://user-images.githubusercontent.com/18741973/159193705-644e4af0-ada2-4153-8399-15bdd18ee071.png)
+Dentro da pasta *Querys* vamos criar o arquivo *FornecedorQuerys*;
 
-<h3> FornecedorInput </h3
-![image](https://user-images.githubusercontent.com/18741973/159193747-c0810c8f-f28c-4687-b395-c6513c5037fb.png)
+![image](https://user-images.githubusercontent.com/18741973/159194076-6b836160-c751-4c93-a193-dcacbe766a00.png)
 
-           
+Vamos codificar nossas querys:
+
+```
+    public class FornecedorQuerys
+    {
+        public string Select
+        {
+            get
+            {
+                return @"SELECT [Id]
+                              ,[Nome]
+                              ,[Email]
+                              ,[Ativo]
+                          FROM [dbo].[Fornecedor]";
+            }
+        }
+
+        public string Insert
+        {
+            get
+            {
+                return @"INSERT INTO [dbo].[Fornecedor]
+                                   ([Nome]
+                                   ,[Email]
+                                   ,[Ativo])
+                             VALUES
+                                   (@Nome
+                                   ,@Email
+                                   ,@Ativo)";
+            }
+        }
+
+        public string Update
+        {
+            get
+            {
+                return @"UPDATE [dbo].[Fornecedor]
+                                   SET [Nome] = @Nome
+                                      ,[Email] = @Email
+                                      ,[Ativo] = @Ativo
+                                 WHERE [Id] = @Id";
+            }
+        }
+
+        public string Delete
+        {
+            get
+            {
+                return @"DELETE [dbo].[Fornecedor] WHERE [Id] = @Id";
+            }
+        }
+
+    }
+    ```
+Agora vamos criar nossa interface e nossa classe para o serviço de fornecedor.
+
+![image](https://user-images.githubusercontent.com/18741973/159194417-f5d83f9a-73d9-4f07-a7d5-e5a64588f6fa.png)
+
+
            
 
