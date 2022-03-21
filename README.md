@@ -174,7 +174,8 @@ Vamos codificar nossas querys:
                              VALUES
                                    (@Nome
                                    ,@Email
-                                   ,@Ativo)";
+                                   ,@Ativo)
+                        SELECT SCOPE_IDENTITY()";
             }
         }
 
