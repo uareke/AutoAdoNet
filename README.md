@@ -95,19 +95,19 @@ Tenho mesmo que todo CRUD de serviços digitar esse monte de linhas? Será que n
     * [Styling text](#Styling-text)           
            
            
-# IHelperService
+### IHelperService
            
-# ExecutaQueryReader
+### ExecutaQueryReader
            
-# ExecutaQuery
+### ExecutaQuery
 
-# DRMapToList
+### DRMapToList
 
-# CreateSqlParameter
+### CreateSqlParameter
            
-# GeraQuery
+### GeraQuery
            
-# Serviços
+### Serviços
 
 
 ## WEB API
