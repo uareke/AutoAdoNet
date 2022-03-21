@@ -31,7 +31,8 @@ namespace AutoAdoNet.Services.Services.Fornecedor.Querys
                              VALUES
                                    (@Nome
                                    ,@Email
-                                   ,@Ativo)";
+                                   ,@Ativo)
+                        SELECT SCOPE_IDENTITY()";
             }
         }
 
