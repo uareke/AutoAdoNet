@@ -86,20 +86,28 @@ Tenho mesmo que todo CRUD de serviços digitar esse monte de linhas? Será que n
 </p>
 
 ## Funcionalidades
+* IHelperService
+    * [ExecutaQueryReader](#executaQueryReader)
+    * [ExecutaQuery](#executaQueryReader)           
+    * [DRMapToList](#executaQueryReader)
+    * [CreateSqlParameter](#executaQueryReader)
+    * [GeraQuery](#executaQueryReader)
+    * [Styling text](#Styling-text)           
+           
+           
+<h4> #IHelperService </h4>
+           
+<h4> #ExecutaQueryReader</h4>
+           
+<h4> #ExecutaQuery</h4> 
 
-:heavy_check_mark: Funcionalidade 1  
+<h4> #DRMapToList</h4>
 
-:heavy_check_mark: Funcionalidade 2  
-
-:heavy_check_mark: Funcionalidade 3  
-
-:heavy_check_mark: Funcionalidade 4  
-
-
-## Dependências
-
-
-## Serviços
+<h4> #CreateSqlParameter</h4>
+           
+<h4> #GeraQuery</h4>
+           
+<h4> #Serviços</h4>
 
 
 ## WEB API
@@ -154,7 +162,7 @@ Liste o time responsável pelo desenvolvimento do projeto
 
 ## Licença 
 
-The [MIT License]() (MIT)
+The [MIT License](https://github.com/uareke/AutoAdoNet/blob/main/LICENSE) (MIT)
 
 Copyright :copyright: 2022 - AutoAdoNet
 
