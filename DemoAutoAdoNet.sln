@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31613.86
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAdoNet.Services", "AutoAdoNet.Services\AutoAdoNet.Services.csproj", "{45E5BB93-3D4B-4B56-8D78-2C0FEAAEB611}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoAdoNet.Services", "AutoAdoNet.Services\AutoAdoNet.Services.csproj", "{45E5BB93-3D4B-4B56-8D78-2C0FEAAEB611}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAdoNet.Models", "AutoAdoNet.Models\AutoAdoNet.Models.csproj", "{F175FA7D-3959-4D21-B986-8489CF3B138D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoAdoNet.Models", "AutoAdoNet.Models\AutoAdoNet.Models.csproj", "{F175FA7D-3959-4D21-B986-8489CF3B138D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoAdoNet.API", "AutoAdoNet.API\AutoAdoNet.API.csproj", "{3F811FBE-0DF0-4787-91EC-CE1C192EC42A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AutoAdoNet.API", "AutoAdoNet.API\AutoAdoNet.API.csproj", "{3F811FBE-0DF0-4787-91EC-CE1C192EC42A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{F175FA7D-3959-4D21-B986-8489CF3B138D} = {F175FA7D-3959-4D21-B986-8489CF3B138D}
 		{45E5BB93-3D4B-4B56-8D78-2C0FEAAEB611} = {45E5BB93-3D4B-4B56-8D78-2C0FEAAEB611}
