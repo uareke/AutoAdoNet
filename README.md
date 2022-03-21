@@ -86,32 +86,62 @@ Tenho mesmo que todo CRUD de serviços digitar esse monte de linhas? Será que n
 </p>
 
 ## Funcionalidades
-* IHelperService
+* [IHelperService](#iHelperService)
     * [ExecutaQueryReader](#executaQueryReader)
     * [ExecutaQuery](#executaQueryReader)           
     * [DRMapToList](#executaQueryReader)
     * [CreateSqlParameter](#executaQueryReader)
     * [GeraQuery](#executaQueryReader)
-    * [Styling text](#Styling-text)           
+  
            
            
 ### IHelperService
+           Serviço que faz toda a magica funcionar, ela contem os métodos..
            
-### ExecutaQueryReader
+### ExecutaQueryReader (Método publico)
            
-### ExecutaQuery
-
-### DRMapToList
-
-### CreateSqlParameter
+Método que executa comandos DQL no banco de dados. (Select)
+       
+Modo de uso:
            
-### GeraQuery
+![image](https://user-images.githubusercontent.com/18741973/159326129-0a151966-5469-4b40-aa8b-be58d20d9d43.png)
            
-### Serviços
+           
+```C#
+ try
+ {
+     var input = new UserInput() { Id = Id };
+     var dados = _helperService.ExecutaQueryReader<UserDto>(_querys.Select, input);
+     return dados;
+
+ }
+ catch (Exception ex)
+ {
+     throw new Exception(ex.Message);
+ }
+```
+           
+### ExecutaQuery  (Método publico)
+           
+Método que executa comandos DML no banco de dados. (Insert , Update e Delete)
+           
+
+### DRMapToList  (Método privado)
+           
+Método que recebe um DataReader e transfoma o mesmo em um objeto.
+           
+
+### CreateSqlParameter (Método privado)
+           
+(Método privado)
+           
+### GeraQuery (Método privado)
+           
+Método experimentar ainda em fase de aprimoramento que gera comandos DQL automaticamente.
 
 
+           
 ## WEB API
-
 
 
 ## Casos de Uso
