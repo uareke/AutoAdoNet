@@ -220,5 +220,35 @@ A codificação do *IFornecedorService*, deve ficar assim:
     }
 ```
            
-           
+Vamos implementar nosso serviço com nossa Interface:
+
+```C#
+  public class FornecedorService : IFornecedorService
+    {
+        public Task<int> Delete(FornecedorInput input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<FornecedorDto>> Get()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<List<FornecedorDto>> Get(int Id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> Insert(FornecedorInput input)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<int> Update(FornecedorInput input)
+        {
+            throw new NotImplementedException();
+        }
+    }
+``` 
 
