@@ -153,3 +153,24 @@ INSERT INTO [dbo].[User]([Name],[DateBirth],[Gender],[Email],[Active])VALUES('CR
 INSERT INTO [dbo].[User]([Name],[DateBirth],[Gender],[Email],[Active])VALUES('JOSEU BARBOSA PINTO','1995-05-20','MA','josue@gmail.com',1);
 
 GO
+
+
+USE [AutoAdoNetDB]
+GO
+
+/***************************************************************************************************
+*	CREATE TABLE FORNECEDOR
+****************************************************************************************************/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Fornecedor](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](250) NOT NULL,
+	[Email] [varchar](250) NOT NULL,
+	[Ativo] [bit] NOT NULL
+) ON [PRIMARY]
+GO
