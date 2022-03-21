@@ -1,4 +1,9 @@
 # AutoAdoNet-
+
+- Tecnologia: ASP.NET Core 5.0
+- Banco de Dados : MSSQL Executando no DOCKER ()
+
+
 Gerado automatico de OBJETO apartir de um DataReader.
 
 -  Criando um novo Serviço para uso
