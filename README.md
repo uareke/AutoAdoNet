@@ -32,47 +32,47 @@
 <p align="justify">
 Com o tempo fazendo manutenção ou criando sistemas baseados em ADO.NET, cheguei à conclusão que todos os serviços eu tinha que digitar sempre o mesmo código.  
 
-``` 
-           try 
-             { 
-                 var watch = System.Diagnostics.Stopwatch.StartNew(); 
-                 var TotalRegistros = 0; 
-                 var count = 1; 
-                 var sql = $@"Select * from Users WHERE id = @id"; 
-                 var listagem = new List<UsuariosDto>(); 
-                 using (SqlConnection connection = new SqlConnection(Debugging.Environment.ConnectionString)) 
-                 { 
-                     using (SqlCommand command = new SqlCommand(sql, connection)) 
-                     { 
-                         command.CommandType = CommandType.Text; 
-                         command.CommandTimeout = 7200; 
-                         command.Parameters.Add(new SqlParameter("@id", input.id)); 
-                         connection.Open(); 
-                         var dr = command.ExecuteReader(); 
-                         while (dr.Read()) 
-                         { 
-                             TotalRegistros++; 
-                             listagem.Add(new UsuariosDto () 
-                             { 
-                                  Id = dr.GetInt32(dr.GetOrdinal("LNGPOLOCOLETA")), 
-                                  Nome = dr. GetString (dr.GetOrdinal("Nome")), 
-                                  . 
-                                  . 
-                                  . 
-                                  . 
-                                  . 
-                                  Ativo= dr.GetBoolean(dr.GetOrdinal(" Ativo ")) 
-                            }); 
-                         } 
-                     } 
-                 } 
-                 watch.Stop(); 
-                 return new LIst< UsuariosDto >(); 
-             } 
-            catch (Exception ex) 
-             { 
-                 throw new Exception(ex.Message); 
-             } 
+```C# {.line-numbers}
+try 
+  { 
+      var watch = System.Diagnostics.Stopwatch.StartNew(); 
+      var TotalRegistros = 0; 
+      var count = 1; 
+      var sql = $@"Select * from Users WHERE id = @id"; 
+      var listagem = new List<UsuariosDto>(); 
+      using (SqlConnection connection = new SqlConnection(Debugging.Environment.ConnectionString)) 
+      { 
+          using (SqlCommand command = new SqlCommand(sql, connection)) 
+          { 
+              command.CommandType = CommandType.Text; 
+              command.CommandTimeout = 7200; 
+              command.Parameters.Add(new SqlParameter("@id", input.id)); 
+              connection.Open(); 
+              var dr = command.ExecuteReader(); 
+              while (dr.Read()) 
+              { 
+                  TotalRegistros++; 
+                  listagem.Add(new UsuariosDto () 
+                  { 
+                       Id = dr.GetInt32(dr.GetOrdinal("LNGPOLOCOLETA")), 
+                       Nome = dr. GetString (dr.GetOrdinal("Nome")), 
+                       . 
+                       . 
+                       . 
+                       . 
+                       . 
+                       Ativo= dr.GetBoolean(dr.GetOrdinal(" Ativo ")) 
+                 }); 
+              } 
+          } 
+      } 
+      watch.Stop(); 
+      return new LIst< UsuariosDto >(); 
+  } 
+ catch (Exception ex) 
+  { 
+      throw new Exception(ex.Message); 
+  } 
 ``` 
 Tenho mesmo que todo CRUD de serviços digitar esse monte de linhas? Será que não consigo reduzir o código para ficar mais limpo e fácil de compreender? Sem contar com os campos que tenho que mapear manualmente do DataReader. Fui criar uma nova feature para um cliente onde a tabela dele tinha 87 campos. :dizzy_face::dizzy_face:
   
@@ -120,6 +120,10 @@ Modo de uso:
      throw new Exception(ex.Message);
  }
 ```
+ 
+![image](https://user-images.githubusercontent.com/18741973/159328699-3fcfe574-06cc-41c1-8d93-cfb03b419b2a.png)
+
+           
            
 ### ExecutaQuery  (Método publico)
            
