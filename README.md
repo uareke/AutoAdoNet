@@ -4,5 +4,7 @@
 [![GitHub forks](https://img.shields.io/github/forks/uareke/AutoAdoNet-)](https://github.com/uareke/AutoAdoNet-/network)
 [![GitHub stars](https://img.shields.io/github/stars/uareke/AutoAdoNet-)](https://github.com/uareke/AutoAdoNet-/stargazers)
 [![GitHub license](https://img.shields.io/github/license/uareke/AutoAdoNet-)](https://github.com/uareke/AutoAdoNet-/blob/main/LICENSE)
+![TESTE](https://img.shields.io/static/v1?label=ASP.NET&message=Core%205.0&color=gren)
+
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO/EVOLUÇÃO&color=GREEN&style=for-the-badge)
