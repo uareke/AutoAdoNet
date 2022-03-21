@@ -1,6 +1,11 @@
 # AutoAdoNet-
 Gerado automatico de OBJETO apartir de um DataReader.
 
+-  Criando um novo Serviço para uso
+-  
+
+
+
 Sempre tinha que reenscrever codigo, deixando o codigo sempre enorme e repetitivo. Em todas as CRUDS que eu criava sempre ou sistema que eu dava manutenção em ADO.NET 
 tinha que adicionar os codigos:
 
@@ -251,4 +256,178 @@ Vamos implementar nosso serviço com nossa Interface:
         }
     }
 ``` 
+
+Agora vem o pulo do GATO :cat:.
+Toda chamada de serviço eu tinha que declarar 
+
+```
+      using (SqlConnection connection = new SqlConnection(Debugging.Environment.ConnectionString))
+      {
+          using (SqlCommand command = new SqlCommand(sql, connection))
+    ..
+    ..
+    ..
+    .. BLA BLA BLA
+```   
+
+Com o serviço *IHelperService*, ja pronto tudo isso. Evito ter que ficar toda hora reescrevendo esse codigo. Agora posso simplesmente passar 2 linhas de comando que vai funcionar.
+
+Vamos implementar o metodo GET para mostrar todos os registros na tabela Fornecedor.
+
+```C#
+        public async Task<List<FornecedorDto>> Get()
+        {
+
+            try
+            {
+                var dados = _helperService.ExecutaQueryReader<FornecedorDto>(_querys.Select, new FornecedorInput());
+                return dados;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+```        
+
+Ok Ok, antes que voçê me xingue tem 9 linhas, é que estou tratando qualquer tipo de erro. :grinning:
+
+![image](https://user-images.githubusercontent.com/18741973/159250987-d50215c2-c4d1-42d0-b999-6701327a0ac0.png)
+
+
+Veja que temos alguns erros, vamos resolver isso.
+- Primeiro fazer inject do nosso serviço *IHelperService*
+- Depois declarar using *FornecedorInput*
+- Depois instanciar nossa classe de Querys *_querys*
+
+```C#
+        #region INJECAO DEPENDENCIA
+        private readonly IHelperService _helperService;
+        private readonly FornecedorQuerys _querys;
+
+        public FornecedorService(
+               IHelperService helperService
+               )
+        {
+            _helperService = helperService;
+            _querys = new FornecedorQuerys();
+        }
+        #endregion
+```        
+
+![image](https://user-images.githubusercontent.com/18741973/159250132-1fa9c78a-9e86-4b78-875c-395639c05719.png)
+
+Não precisa se preocupar com o *Container DI* da injeção de dependencia, já deixei o caminho das pedras prontos utilizando [SimpleInject](https://simpleinjector.org/).
+Onde dentro do *Startup* ele já detecta todas as classes e injeta automaticamente dentro de nosso container.
+
+![image](https://user-images.githubusercontent.com/18741973/159249783-f479823a-3069-4da4-8bdb-90b341bc69db.png)
+
+
+Agora implemente o metodo *Get* que vai parametros:
+
+```C#
+        public async Task<List<FornecedorDto>> Get(int Id)
+        {
+
+            try
+            {
+                var dados = _helperService.ExecutaQueryReader<FornecedorDto>(_querys.Select, new FornecedorInput() { Id = Id });
+                return dados;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+```        
+Agora que vem o pulo do gato 2 :cat::cat:, onde os parametros passados vão virar os parametros para nossa pesquisa.
+Nossa query de pesquisa para o metodo *GET* é:
+```SQL
+SELECT [Id]
+        ,[Nome]
+        ,[Email]
+        ,[Ativo]
+    FROM [dbo].[Fornecedor]
+```                          
+
+Em nossa chamada estamos enviando o parametro :
+
+![image](https://user-images.githubusercontent.com/18741973/159252860-1313d068-c313-44c2-bc41-a3764d966b9d.png)
+
+O sistema vai automaticamente gerar a query :
+
+```SQL
+SELECT [Id]
+        ,[Nome]
+        ,[Email]
+        ,[Ativo]
+    FROM [dbo].[Fornecedor]
+    WHERE [Id] = @Id
+```
+
+Vamos implementar os metodos;
+- Insert
+- Update
+- Delete
+
+```C#
+    public async Task<int> Insert(FornecedorInput input)
+        {
+
+            try
+            {
+                var dados = _helperService.ExecutaQuery<FornecedorDto>(_querys.Insert, input, QueryType.Insert);
+                return dados;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+
+        }
+
+        public async Task<int> Update(FornecedorInput input)
+        {
+            try
+            {
+                var dados = _helperService.ExecutaQuery<FornecedorDto>(_querys.Update, input, QueryType.Update);
+                return dados;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        public async Task<int> Delete(FornecedorInput input)
+        {
+            try
+            {
+                var dados = _helperService.ExecutaQuery<FornecedorDto>(_querys.Delete, input, QueryType.Delete);
+                return dados;
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+```        
+
+Para os comandos DML: *INSERT*, *UPDATE* e *DELETE* utilizamos um metodo diferente:
+
+```C#
+_helperService.ExecutaQuery<FornecedorDto>(_querys.Insert, input, QueryType.Insert);
+```
+
+![image](https://user-images.githubusercontent.com/18741973/159257565-55c768fd-dccd-4a07-b2fb-5bb9c46561de.png)
+
+Com isso já temos um serviço pronto para ser consumido por API ou UI MVC.
+
+----
 
