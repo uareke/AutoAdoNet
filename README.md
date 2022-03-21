@@ -149,7 +149,7 @@ Diferente do comando *ExecutaQueryReader*, que retorna um DataReader em um OBJET
 
 ## Desenvolvedores/Contribuintes :octocat:
 
-Liste o time responsável pelo desenvolvimento do projeto
+Time responsável pelo desenvolvimento do projeto
 
 | [<img src="https://avatars.githubusercontent.com/u/18741973?s=400&u=85f4ce3e928db7a1bb4f16942c3c95c788cf239b&v=4" width=115><br><sub>Alex S.M. de Araujo</sub>](https://github.com/uareke) | | |
 | :---: | :---: | :---: 
