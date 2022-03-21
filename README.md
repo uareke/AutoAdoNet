@@ -4,7 +4,7 @@ Gerado automatico de OBJETO apartir de um DataReader.
 Sempre tinha que reenscrever codigo, deixando o codigo sempre enorme e repetitivo. Em todas as CRUDS que eu criava sempre ou sistema que eu dava manutenção em ADO.NET 
 tinha que adicionar os codigos:
 
-
+```C#
            try
              {
                  var watch = System.Diagnostics.Stopwatch.StartNew();
@@ -41,11 +41,13 @@ tinha que adicionar os codigos:
                      }
                  }
                  watch.Stop();
+```                 
                  
 Sempre repetindo codigo, criando parametros manuais dai pensei chega de tanta dor de cabeça, consegui resurmir todo esse codigo em apenas algumas linhas. E retornando a query diretamente dentro de um "objeto DTO".
 
 Usando somente essas linhas:
 
+```C#
             try
             {
                 var dados = _helperService.ExecutaQueryReader<UserDto>(_querys.Select, new UserInput());
@@ -56,6 +58,7 @@ Usando somente essas linhas:
             {
                 throw new Exception(ex.Message);
             }
+```
 
 ![image](https://user-images.githubusercontent.com/18741973/159191273-34d8970a-1ac8-4976-a231-e4064d20067e.png)
 
@@ -113,7 +116,7 @@ Agora vamos voltar para nosso service. Vamos criar nosso *FornecedorDto* e *Forn
 ![image](https://user-images.githubusercontent.com/18741973/159193678-371e659b-87a3-4361-b22a-21dc6e6fd50b.png)
 
 FornecedorDto
-```
+```C#
     public class FornecedorDto
     {
         public int Id { get; set; }
@@ -124,7 +127,7 @@ FornecedorDto
 ```    
     
 FornecedorInput
-```
+```C#
     public class FornecedorDto
     {
         public int? Id { get; set; }
@@ -140,7 +143,7 @@ Dentro da pasta *Querys* vamos criar o arquivo *FornecedorQuerys*;
 
 Vamos codificar nossas querys:
 
-```
+```C#
     public class FornecedorQuerys
     {
         public string Select
@@ -191,11 +194,31 @@ Vamos codificar nossas querys:
         }
 
     }
-    ```
+```
+    
 Agora vamos criar nossa interface e nossa classe para o serviço de fornecedor.
 
 ![image](https://user-images.githubusercontent.com/18741973/159194417-f5d83f9a-73d9-4f07-a7d5-e5a64588f6fa.png)
 
 
+A codificação do *IFornecedorService*, deve ficar assim:
+
+```C#
+ public interface IFornecedorService
+    {
+
+        Task<List<FornecedorDto>> Get();
+
+        Task<List<FornecedorDto>> Get(int Id);
+
+        Task<int> Insert(FornecedorInput input);
+
+        Task<int> Update(FornecedorInput input);
+
+        Task<int> Delete(FornecedorInput input);
+
+    }
+```
+           
            
 
