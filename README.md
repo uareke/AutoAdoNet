@@ -20,10 +20,6 @@
 
 :small_blue_diamond: [Funcionalidades](#funcionalidades)
 
-:small_blue_diamond: [Dependências](#dependências)
-
-:small_blue_diamond: [Serviços](#serviços)
-
 :small_blue_diamond: [WEB API](#web-api)
 
 
