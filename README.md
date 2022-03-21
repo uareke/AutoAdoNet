@@ -6,6 +6,8 @@
 [![GitHub license](https://img.shields.io/github/license/uareke/AutoAdoNet-)](https://github.com/uareke/AutoAdoNet-/blob/main/LICENSE)
 ![Linguagem](https://img.shields.io/static/v1?label=ASP.NET&message=Core%205.0&color=gren)
 ![Banco de dados](https://img.shields.io/static/v1?label=DataBase&message=MSSQL%20Server&color=gren)
+![GitHub Org's stars](https://img.shields.io/github/stars/uareke/AutoAdoNet-?style=social)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/uareke/AutoAdoNet-?include_prereleases)
 
 
 ![Badge em Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO/EVOLUÇÃO&color=GREEN&style=for-the-badge)
