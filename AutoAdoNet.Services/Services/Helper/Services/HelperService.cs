@@ -25,7 +25,7 @@ namespace AutoAdoNet.Services.Services.Helper.Services
         /// <param name="dr">Data Reader</param>
         /// <returns>OBJETO T</returns>
         #region DRMapToList
-        public List<T> DRMapToList<T>(IDataReader dr)
+        private List<T> DRMapToList<T>(IDataReader dr)
         {
             IDataReader valores = dr;
             var propriedade = "";
@@ -156,7 +156,7 @@ namespace AutoAdoNet.Services.Services.Helper.Services
         /// <param name="values">Objeto DTO</param>
         /// <returns>Lista de parametros </returns>
         #region CreateSqlParameter
-        public List<SqlParameter> CreateSqlParameter(dynamic values, QueryType tipoQuery = QueryType.Select)
+        private List<SqlParameter> CreateSqlParameter(dynamic values, QueryType tipoQuery = QueryType.Select)
         {
             var dinamicParameter = new List<SqlParameter>();
             foreach (PropertyInfo prop in values.GetType().GetProperties())
@@ -195,7 +195,7 @@ namespace AutoAdoNet.Services.Services.Helper.Services
         /// <param name="query">Retorna a query pré construida com os parametros</param>
         /// <returns></returns>
         #region Geraquery
-        public string GeraQuery(dynamic values, string query)
+        private string GeraQuery(dynamic values, string query)
         {
             StringBuilder sqlParam = new StringBuilder();
             var resultado = "";
